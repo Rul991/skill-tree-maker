@@ -1,0 +1,45 @@
+{
+	"name": "Начало",
+	"description": "Герой получает меч (наносит 10 урона) и щит (блокирует 75% урона).",
+	"id": "knight-unlock",
+	"children": [
+		{
+			"name": "Меч I",
+			"description": "Урон меча повышается до 15 единиц.",
+			"id": "knight-sword1",
+			"children": [
+				{
+					"name": "Меч II",
+					"description": "Урон меча повышается до 20 единиц.",
+					"id": "knight-sword2",
+					"children": []
+				},
+				{
+					"name": "Дробовик",
+					"description": "Даёт возможность переключиться в режим стрельбы.",
+					"id": "knight-shotgun0",
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Щит I",
+			"description": "Щит поглощает 80% урона.",
+			"id": "knight-shield1",
+			"children": [
+				{
+					"name": "Щит II",
+					"description": "Щит поглощает 85% урона.",
+					"id": "knight-shield2",
+					"children": []
+				},
+				{
+					"name": "Реактивные ботинки",
+					"description": "Даёт возможность подпрыгнуть в воздухе.",
+					"id": "knight-doublejump",
+					"children": []
+				}
+			]
+		}
+	]
+}

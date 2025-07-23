@@ -1,0 +1,46 @@
+@import '@styles/common/default.module.less';
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/utils/_sizes.less';
+
+.block {
+    background: @input-background-color;
+    border: 3px solid @active-color;
+    padding: 1rem;
+}
+
+.buttons {
+    .block;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+
+    @media (max-width: @laptop) {
+        grid-template-columns: 100%;
+    }
+
+    @media (max-width: @tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: @large-mobile) {
+        grid-template-columns: 100%;
+        gap: 0;
+    }
+}
+
+.inputs {
+    .block();
+}
+
+.panel {
+    .block;
+    overflow: auto;
+    background: @background;
+    border-top-width: 0;
+    border-bottom-width: 0;
+
+    @media (max-width: @tablet) {
+        border-width: 0;
+        border-bottom-width: 3px;
+    }
+}

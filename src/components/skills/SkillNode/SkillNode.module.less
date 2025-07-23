@@ -1,0 +1,62 @@
+@import '@styles/common/default.module.less';
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/utils/_sizes.less';
+
+.node {
+    .element();
+    padding: 1rem;
+    background: @input-background-color;
+
+    &:hover {
+        .element-hover;
+    }
+
+    width: 30rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: @large-mobile) {
+        width: 95vw;
+    }
+
+    @media (max-width: @small-mobile) {
+        width: 200vw;
+    }
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.inputs {
+    margin-bottom: 1rem;
+}
+
+.choosed {
+    .element-hover;
+    border-width: 5px;
+}
+
+.point {
+    @size: 2rem;
+    
+    border: 8px solid @active-color;
+    width: @size;
+    height: @size;
+
+    align-self: center;
+    justify-self: right;
+
+    box-sizing: border-box;
+    margin-right: 1rem;
+
+    .choosed {
+        @size: 100%;
+
+        border: 1px solid @active-color;
+        background-color: @active-color;
+        width: @size;
+        height: @size;
+    }
+}

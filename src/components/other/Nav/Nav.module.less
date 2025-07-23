@@ -1,0 +1,42 @@
+@import "@styles/utils/_functional_colors.less";
+@import '@styles/utils/_sizes.less';
+@import '@styles/utils/_animations.less';
+@import '@styles/common/default.module.less';
+
+.rgb {
+    .transition-300ms;
+    &:hover {
+        color: red;
+        animation: rgb-image 4.5s infinite;
+    }
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    color: @input-background-color;
+    background-color: @active-color;
+    padding: 1rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    text-align: right;
+
+    @media (max-width: @tablet) {
+        text-align: center;
+    }
+
+    @media (max-width: @small-mobile) {
+        font-size: 1.5rem;
+    }
+
+    & > img {
+        .transition-300ms;
+        .rgb;
+        height: 3rem;
+        filter: brightness(1.5);
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

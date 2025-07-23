@@ -1,0 +1,51 @@
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/utils/_sizes.less';
+@import '@styles/common/default.module.less';
+
+@font-size: 1.25rem;
+
+.component {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: @laptop) {
+        text-align: center;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+.input {
+    padding: 0.25rem;
+    font-size: @font-size;
+
+    color: @active-color;
+    border: 3px solid @active-color;
+    background: @input-background-color;
+
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+
+    justify-self: right;
+    margin: 0;
+
+    @media (max-width: @laptop) {
+        justify-self: center;
+    }
+
+    width: 100%;
+}
+
+.title {
+    font-size: @font-size;
+}

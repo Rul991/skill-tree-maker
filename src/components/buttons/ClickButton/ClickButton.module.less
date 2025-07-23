@@ -1,0 +1,12 @@
+@import '@styles/common/button.module.less';
+@import '@styles/utils/_functional_colors.less';
+
+.click-button {
+    .button();
+
+    &-pressed {
+        background-color: @button-hover-color;
+        color: @background!important;
+        border-color: @background!important;
+    }
+}

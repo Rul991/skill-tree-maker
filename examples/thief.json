@@ -1,0 +1,1 @@
+{"id":"thief-unlock","name":"Вор","description":"Дает арбалет.","children":[{"id":"thief-stealth1","name":"Скрытность I","description":"Дает возможность скрываться.","children":[]},{"id":"thief-range1","name":"Дальность I","description":"Увеличивает дальность полета стрел из арбалета.","children":[]}]}

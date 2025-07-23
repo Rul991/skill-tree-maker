@@ -1,0 +1,32 @@
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/utils/_sizes.less';
+
+.transtion-300ms {
+    transition: all 0.3s ease-in-out;
+}
+
+.transition-300ms {
+    .transtion-300ms;
+}
+
+.element {
+    .transtion-300ms();
+    @font-size: 18px;
+    
+    font-size: @font-size;
+    border: @button-active-color 3px solid;
+    padding: calc(@font-size / 2) 0;
+
+    background: @background;
+    color: @button-active-color;
+
+    @media (max-width: @tablet) {
+        grid-template-columns: 100%;
+        margin-top: 8px;
+    }
+}
+
+.element-hover {
+    border-color: @button-hover-color;
+    color: @button-hover-color;
+}

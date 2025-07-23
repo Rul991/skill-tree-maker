@@ -1,0 +1,50 @@
+@import "./utils/_functional_colors.less";
+@import "./utils/_sizes.less";
+
+* {
+    box-sizing: border-box;
+    font-family: "h12";
+
+    scrollbar-width: thin;
+    scrollbar-color: @active-color transparent;
+}
+
+body, html, #root {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: @background;
+
+    height: 100vh;
+}
+
+#root {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    }
+
+main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    overflow: auto;
+
+    & > * {
+        padding: 1rem;
+    }
+
+    @media (max-width: @tablet) {
+        grid-template-columns: none;
+        grid-template-rows: 150% 200%;
+    }
+}
+
+h2 {
+    color: @heading-color;
+    text-align: center;
+    margin: 0.25rem;
+    font-size: 1.7rem;
+
+    &::after {
+        content: ":";
+    }
+}
