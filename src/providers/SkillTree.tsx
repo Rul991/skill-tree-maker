@@ -1,19 +1,14 @@
-import { createContext, useContext, useEffect, useReducer, type Dispatch, type PropsWithChildren } from 'react'
+import { createContext, useEffect, useReducer, type Dispatch, type PropsWithChildren } from 'react'
 import type SkillElement from '../interfaces/SkillElement'
 import SkillElementUtils from '../utils/SkillElementUtils'
 import SkillElementValidator from '../utils/SkillElementValidator'
 import type { SkillTreeAction } from '../utils/types'
-import { CurrentIndexContext } from './CurrentIndex'
 
-export const createNewObject = (): SkillElement => ({
-    id: `el${Math.ceil(++createdObjects / 2)}`,
-    name: 'name',
-    description: 'description',
-    children: []
-})
+const cloneObject = <T extends object>(obj: T): T => {
+    return JSON.parse(JSON.stringify(obj))
+}
 
-let createdObjects = 0
-let initialState: SkillElement = {...createNewObject(), isRoot: true}
+let initialState: SkillElement = SkillElementUtils.createNewObject(true)
 
 try {
     const parsed: SkillElement = JSON.parse(localStorage.getItem('skill-tree')!)
@@ -28,15 +23,15 @@ export const SkillTreeContext = createContext<[SkillElement, Dispatch<SkillTreeA
 )
 
 export const SkillTreeProvider = ({ children }: PropsWithChildren) => {
-    const [_, setIndex] = useContext(CurrentIndexContext)
     const reducer = (state: SkillElement, action: SkillTreeAction): SkillElement => {
-        const cloneState: SkillElement = JSON.parse(JSON.stringify(state))
+        const cloneState: SkillElement = cloneObject(state)
+
         switch (action.type) {
             case 'add':
                 {
                     const obj = SkillElementUtils.findById(cloneState, action.id)
                     if(obj) {
-                        obj.children.push(createNewObject())
+                        obj.children.push(SkillElementUtils.createNewObject())
                     }
                 }
                 return cloneState
@@ -55,7 +50,6 @@ export const SkillTreeProvider = ({ children }: PropsWithChildren) => {
                                 obj[key] = values[key]
                         }
                     }
-
                 }
                 
                 return cloneState
@@ -65,8 +59,6 @@ export const SkillTreeProvider = ({ children }: PropsWithChildren) => {
                 return cloneState
 
             case 'load':
-                setIndex(action.skill.id)
-                createdObjects = 0
                 return action.skill
 
             case 'splice':

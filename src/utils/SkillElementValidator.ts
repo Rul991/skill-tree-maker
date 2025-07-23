@@ -18,6 +18,8 @@ export default class SkillElementValidator {
     }
 
     static isSkillValid(skill: SkillElement): boolean {
+        if(!skill) return false
+
         const {id, name, description, children} = skill
         return (
             this.isIdValid(id) &&

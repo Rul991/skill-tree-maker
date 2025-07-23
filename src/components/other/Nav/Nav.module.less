@@ -13,7 +13,7 @@
 
 .nav {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     color: @input-background-color;
     background-color: @active-color;
     padding: 1rem;
@@ -27,6 +27,10 @@
 
     @media (max-width: @small-mobile) {
         font-size: 1.5rem;
+    }
+
+    & > div {
+        grid-column: 3/3;
     }
 
     & > img {

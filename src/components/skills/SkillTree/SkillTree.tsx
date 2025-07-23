@@ -8,14 +8,13 @@ import { CurrentIndexContext } from '../../../providers/CurrentIndex'
 const SkillTree = () => {
     const [skill, _] = useSkillTree()
     const [_index, setCurrentIndex] = useContext(CurrentIndexContext)
-    let i = 0
 
     useEffect(() => {
         setCurrentIndex(skill.id)
     }, [])
 
     const renderTree = (skill: SkillElement, length = 0): JSX.Element => {
-        return <div key={i++}>
+        return <div key={skill.id}>
             <SkillNode length={length} name={skill.name} description={skill.description} id={skill.id} />
             {skill.children.map(child => renderTree(child, length + 1))}
         </div>
