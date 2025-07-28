@@ -6,13 +6,18 @@ import Characteristics from '../../characteristics/Characteristics'
 import type SkillNodeProps from '../../../props/SkillNodeProps'
 import { SKILL_MARGIN_REM } from '../../../utils/consts'
 
-const SkillNode = ({name, description, id, length}: SkillNodeProps) => {
+const SkillNode = ({name, description, id, level}: SkillNodeProps) => {
     const [currentIndex, setCurrentIndex] = useContext(CurrentIndexContext)
     
     const elements: CharacteristicObject[] = [
         {
             title: 'ID',
             value: id
+        },
+
+        {
+            title: 'Уровень',
+            value: level + 1
         },
 
         {
@@ -29,11 +34,11 @@ const SkillNode = ({name, description, id, length}: SkillNodeProps) => {
     return (
         <div 
             onClick={onClick}
-            style={{display: 'grid', gridTemplateColumns: `${length * SKILL_MARGIN_REM}rem 1fr`}}
+            style={{display: 'grid', gridTemplateColumns: `${level * SKILL_MARGIN_REM}rem 1fr`}}
         >
             {
-                length > 0 &&
-                <div className={styles.point} style={{marginLeft: `${length * SKILL_MARGIN_REM / 2}rem`}}>
+                level > 0 &&
+                <div className={styles.point} style={{marginLeft: `${level * SKILL_MARGIN_REM / 2}rem`}}>
                     <div className={id == currentIndex ? styles.choosed : ''}></div>
                 </div>
             }

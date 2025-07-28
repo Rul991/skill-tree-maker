@@ -15,7 +15,7 @@ const SkillTree = () => {
 
     const renderTree = (skill: SkillElement, length = 0): JSX.Element => {
         return <div key={skill.id}>
-            <SkillNode length={length} name={skill.name} description={skill.description} id={skill.id} />
+            <SkillNode level={length} name={skill.name} description={skill.description} id={skill.id} />
             {skill.children.map(child => renderTree(child, length + 1))}
         </div>
         }    
