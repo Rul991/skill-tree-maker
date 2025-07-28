@@ -16,11 +16,6 @@ const SkillNode = ({name, description, id, level}: SkillNodeProps) => {
         },
 
         {
-            title: 'Уровень',
-            value: level + 1
-        },
-
-        {
             title: 'Описание',
             value: description
         },
@@ -43,7 +38,7 @@ const SkillNode = ({name, description, id, level}: SkillNodeProps) => {
                 </div>
             }
             <div className={`${styles.node} ${id == currentIndex ? styles.choosed : ''}`}>
-                <h2>{name}</h2>
+                <h2>{name} ({level + 1} ур.)</h2>
                 <div>
                     <Characteristics elements={elements} />
                 </div>
